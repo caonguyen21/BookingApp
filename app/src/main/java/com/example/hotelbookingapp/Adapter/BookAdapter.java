@@ -15,18 +15,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hotelbookingapp.Model.Khachsan;
 import com.example.hotelbookingapp.R;
 import com.example.hotelbookingapp.UI.DetailHotelActivity;
-import com.example.hotelbookingapp.UI.FavoriteFragment;
+import com.example.hotelbookingapp.UI.BookFragment;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
-public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
+public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     List<Khachsan> list;
-    FavoriteFragment context;
+    BookFragment context;
 
-    public FavoriteAdapter(FavoriteFragment context, List<Khachsan> list) {
+    public BookAdapter(BookFragment context, List<Khachsan> list) {
         this.list = list;
         this.context = context;
     }

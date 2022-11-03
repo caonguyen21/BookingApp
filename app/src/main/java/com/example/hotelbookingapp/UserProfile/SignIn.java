@@ -27,7 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class DangNhap extends AppCompatActivity implements View.OnClickListener {
+public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
     TextView dangky, quenmatkhau;
     TextInputEditText password;
@@ -38,7 +38,7 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dang_nhap);
+        setContentView(R.layout.activity_sign_in);
         email = findViewById(R.id.edt_Email);
         password = findViewById(R.id.edt_Password);
         dangnhap = findViewById(R.id.btn_Dangnhap);
@@ -57,7 +57,7 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
                 CheckUser();
                 break;
             case R.id.txt_Dangkytaikhoan:
-                startActivity(new Intent(this, DangKy.class));
+                startActivity(new Intent(this, SignUp.class));
                 break;
             /*case R.id.forgotpassword:
                 startActivity(new Intent(this, activity_forgotpassword.class));
@@ -118,10 +118,10 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
                     }
                 }
                 if (exist == true) {
-                    startActivity(new Intent(DangNhap.this, MainScreen.class));
+                    startActivity(new Intent(SignIn.this, MainScreen.class));
                     finish();
                 } else {
-                    Toast.makeText(DangNhap.this, "Đăng nhập thất bại! Hãy kiểm tra lại thông tin đăng nhập!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignIn.this, "Đăng nhập thất bại! Hãy kiểm tra lại thông tin đăng nhập!", Toast.LENGTH_LONG).show();
                 }
             }
 

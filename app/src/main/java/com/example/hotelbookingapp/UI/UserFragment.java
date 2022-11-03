@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.hotelbookingapp.Model.User;
 import com.example.hotelbookingapp.R;
-import com.example.hotelbookingapp.UserProfile.DangNhap;
+import com.example.hotelbookingapp.UserProfile.SignIn;
 import com.example.hotelbookingapp.UserProfile.EditProfilePage;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -96,7 +96,7 @@ public class UserFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getActivity(), DangNhap.class);
+                Intent intent = new Intent(getActivity(), SignIn.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }

@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DangKy extends AppCompatActivity implements View.OnClickListener {
+public class SignUp extends AppCompatActivity implements View.OnClickListener {
     TextInputEditText edt_Password, edt_Nhaplaipassword;
     Button DangKy;
     EditText edt_Hoten, edt_Sdt, edt_Email;
@@ -36,7 +36,7 @@ public class DangKy extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dang_ky);
+        setContentView(R.layout.activity_sign_up);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -139,11 +139,11 @@ public class DangKy extends AppCompatActivity implements View.OnClickListener {
                             user.put("username", username);
                             user.put("phone", phone);
                             databaseReference.child(mAuth.getCurrentUser().getUid()).setValue(user);
-                            Toast.makeText(DangKy.this, "Tạo tài khoản thành công.", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(DangKy.this, DangNhap.class));
+                            Toast.makeText(SignUp.this, "Tạo tài khoản thành công.", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(SignUp.this, SignIn.class));
                             finishAffinity();
                         } else {
-                            Toast.makeText(DangKy.this, "Tạo tài khoản thất bại.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp.this, "Tạo tài khoản thất bại.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

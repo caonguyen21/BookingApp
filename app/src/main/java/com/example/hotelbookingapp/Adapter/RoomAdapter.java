@@ -1,6 +1,5 @@
 package com.example.hotelbookingapp.Adapter;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -17,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hotelbookingapp.Model.Khachsan;
 import com.example.hotelbookingapp.R;
-import com.example.hotelbookingapp.UI.ActivityDetailHotel;
+import com.example.hotelbookingapp.UI.DetailHotelActivity;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
@@ -25,10 +24,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class ApdapterRoom extends RecyclerView.Adapter<ApdapterRoom.ViewHolder> implements Filterable{
+public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> implements Filterable{
     List<Khachsan> list;
     List<Khachsan> listfull;
-    public ApdapterRoom(List<Khachsan> list) {
+    public RoomAdapter(List<Khachsan> list) {
         this.listfull = list;
         this.list = new ArrayList<>(listfull);
     }
@@ -72,7 +71,7 @@ public class ApdapterRoom extends RecyclerView.Adapter<ApdapterRoom.ViewHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentbk = new Intent(view.getContext(), ActivityDetailHotel.class);
+                Intent intentbk = new Intent(view.getContext(), DetailHotelActivity.class);
                 intentbk.putExtra("clickdetail", ks);
                 view.getContext().startActivity(intentbk);
             }

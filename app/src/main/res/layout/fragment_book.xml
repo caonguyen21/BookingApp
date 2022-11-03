@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".Welcome">
 
@@ -35,28 +34,36 @@
         android:layout_height="match_parent"
         android:paddingHorizontal="15dp" />
 
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:text="Hiện bạn đang không có chuyến đi nào"
-        android:textColor="@color/white"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:visibility="gone" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:text="Trang này hiển thị tất cả các đặt chỗ của bạn."
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:visibility="gone" />
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Hiện bạn đang không có chuyến đi nào"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Trang này hiển thị tất cả các đặt chỗ của bạn."
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
 </LinearLayout>

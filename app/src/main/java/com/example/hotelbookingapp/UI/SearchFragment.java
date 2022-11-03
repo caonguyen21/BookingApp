@@ -2,7 +2,6 @@ package com.example.hotelbookingapp.UI;
 
 import android.app.SearchManager;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,7 +22,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.hotelbookingapp.Adapter.ApdapterRoom;
+import com.example.hotelbookingapp.Adapter.RoomAdapter;
 import com.example.hotelbookingapp.Model.Khachsan;
 import com.example.hotelbookingapp.R;
 import com.google.firebase.database.DataSnapshot;
@@ -40,7 +39,7 @@ public class SearchFragment extends Fragment {
 
     List<Khachsan> list;
     RecyclerView recyclerView;
-    ApdapterRoom apdapterRoom;
+    RoomAdapter apdapterRoom;
     SearchView search_view;
     Toolbar toolbar;
     MenuItem menuItem;
@@ -91,7 +90,7 @@ public class SearchFragment extends Fragment {
                     Khachsan ks = child.getValue(Khachsan.class);
                     list.add(ks);
                 }
-                apdapterRoom = new ApdapterRoom(list);
+                apdapterRoom = new RoomAdapter(list);
                 recyclerView.setAdapter(apdapterRoom);
                 apdapterRoom.notifyDataSetChanged();
             }
@@ -115,7 +114,7 @@ public class SearchFragment extends Fragment {
                     Khachsan ks = child.getValue(Khachsan.class);
                     list.add(0, ks);
                 }
-                apdapterRoom = new ApdapterRoom(list);
+                apdapterRoom = new RoomAdapter(list);
                 recyclerView.setAdapter(apdapterRoom);
                 apdapterRoom.notifyDataSetChanged();
             }
@@ -139,7 +138,7 @@ public class SearchFragment extends Fragment {
                     Khachsan ks = child.getValue(Khachsan.class);
                     list.add(ks);
                 }
-                apdapterRoom = new ApdapterRoom(list);
+                apdapterRoom = new RoomAdapter(list);
                 recyclerView.setAdapter(apdapterRoom);
                 apdapterRoom.notifyDataSetChanged();
             }

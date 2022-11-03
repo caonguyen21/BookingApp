@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.hotelbookingapp.UserProfile.DangNhap;
+import com.example.hotelbookingapp.UserProfile.SignIn;
 
 public class Welcome extends AppCompatActivity {
 
@@ -17,7 +17,7 @@ public class Welcome extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(Welcome.this, DangNhap.class));
+                startActivity(new Intent(Welcome.this, SignIn.class));
                 finish();
             }
         }, 2000);

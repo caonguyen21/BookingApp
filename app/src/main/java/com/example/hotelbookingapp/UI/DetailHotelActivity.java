@@ -40,12 +40,13 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
 import kr.co.prnd.readmore.ReadMoreTextView;
 
-public class ActivityDetailHotel extends AppCompatActivity implements View.OnClickListener {
+public class DetailHotelActivity extends AppCompatActivity implements View.OnClickListener {
 
     Khachsan khachsan;
     TextView txttenks, txtdiachi, txtgia, toolbartenks;
@@ -101,11 +102,11 @@ public class ActivityDetailHotel extends AppCompatActivity implements View.OnCli
         txttenks.setText(khachsan.getTenks());
         txtdiachi.setText(khachsan.getDiachiCT());
 
-        /*Locale localeVN = new Locale("vi", "VN");
+        Locale localeVN = new Locale("vi", "VN");
         NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
-        String get_gia = currencyVN.format(Integer.parseInt(khachsan.getGia()));*/
+        String get_gia = currencyVN.format(Integer.parseInt(khachsan.getGia()));
 
-        txtgia.setText(khachsan.getGia());
+        txtgia.setText(get_gia);
         txtmota.setText(khachsan.getMota());
 
         Picasso.get().load(khachsan.getHinh()).fit().centerCrop().into(img);
@@ -119,7 +120,7 @@ public class ActivityDetailHotel extends AppCompatActivity implements View.OnCli
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         } else {
-            ActivityCompat.requestPermissions(ActivityDetailHotel.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
+            ActivityCompat.requestPermissions(DetailHotelActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
         }
         fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
             @Override
@@ -127,7 +128,7 @@ public class ActivityDetailHotel extends AppCompatActivity implements View.OnCli
                 Location location = task.getResult();
                 if (location != null) {
                     try {
-                        Geocoder geocoder = new Geocoder(ActivityDetailHotel.this, Locale.getDefault());
+                        Geocoder geocoder = new Geocoder(DetailHotelActivity.this, Locale.getDefault());
                         List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
                         try {
                             Uri uri;
@@ -158,8 +159,7 @@ public class ActivityDetailHotel extends AppCompatActivity implements View.OnCli
         String tenDiaDiem = txttenks.getText().toString();
         String diaChi = txtdiachi.getText().toString();
         String moTa = txtmota.getText().toString();
-        String gia = txtgia.getText().toString();
-
+        String gia = khachsan.getGia();
         String slp = khachsan.getSlphongdon();
         String dc = khachsan.getDiachi();
         String sdt = khachsan.getSdtks();

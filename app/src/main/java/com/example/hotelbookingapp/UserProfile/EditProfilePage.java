@@ -47,10 +47,10 @@ import java.util.HashMap;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EditProfilePage extends AppCompatActivity {
-    private static final int CAMERA_REQUEST = 100;
+    private static final int CAMERA_REQUEST = 1888;
     private static final int STORAGE_REQUEST = 200;
-    private static final int IMAGEPICK_GALLERY_REQUEST = 300;
-    private static final int IMAGE_PICKCAMERA_REQUEST = 400;
+    private static final int IMAGEPICK_GALLERY_REQUEST = 0;
+    private static final int IMAGE_PICKCAMERA_REQUEST = 1;
     FirebaseUser firebaseUser;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -82,13 +82,12 @@ public class EditProfilePage extends AppCompatActivity {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     User user = dataSnapshot.getValue(User.class);
-                    if(user.getImage() == null){
+                    if (user.getImage() == null) {
                         Drawable drawable = getResources().getDrawable(R.drawable.avatar);
                         circleImageView.setImageDrawable(drawable);
-                    }
-                    else{
+                    } else {
                         Picasso.get().load(user.getImage()).into(circleImageView);
                     }
                 }
@@ -125,13 +124,12 @@ public class EditProfilePage extends AppCompatActivity {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     User user = dataSnapshot.getValue(User.class);
-                    if(user.getImage() == null){
+                    if (user.getImage() == null) {
                         Drawable drawable = getResources().getDrawable(R.drawable.avatar);
                         circleImageView.setImageDrawable(drawable);
-                    }
-                    else{
+                    } else {
                         Picasso.get().load(user.getImage()).into(circleImageView);
                     }
                 }
@@ -151,17 +149,17 @@ public class EditProfilePage extends AppCompatActivity {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     User user = dataSnapshot.getValue(User.class);
-                    if(user.getImage() == null){
+                    if (user.getImage() == null) {
                         Drawable drawable = getResources().getDrawable(R.drawable.avatar);
                         circleImageView.setImageDrawable(drawable);
-                    }
-                    else{
+                    } else {
                         Picasso.get().load(user.getImage()).into(circleImageView);
                     }
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -210,6 +208,7 @@ public class EditProfilePage extends AppCompatActivity {
             return result && result1;
         }
     }
+
     // requesting for camera permission if not given
     private void requestCameraPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -304,12 +303,6 @@ public class EditProfilePage extends AppCompatActivity {
 
     // Here we will click a photo and then go to startactivityforresult for updating data
     private void pickFromCamera() {
-        Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(takePicture, 0);//zero can be replaced with any action code (called requestCode)
-    }
-
-    // We will select an image from gallery
-    private void pickFromGallery() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(MediaStore.Images.Media.TITLE, "Temp_pic");
         contentValues.put(MediaStore.Images.Media.DESCRIPTION, "Temp Description");
@@ -317,7 +310,13 @@ public class EditProfilePage extends AppCompatActivity {
         Intent camerIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         camerIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageuri);
         startActivityForResult(camerIntent, IMAGE_PICKCAMERA_REQUEST);
-        //activityResultLauncher.launch(galleryIntent);
+    }
+
+    // We will select an image from gallery
+    private void pickFromGallery() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK);
+        galleryIntent.setType("image/*");
+        startActivityForResult(galleryIntent, IMAGEPICK_GALLERY_REQUEST);
     }
 
     // We will upload the image from here.
@@ -366,6 +365,7 @@ public class EditProfilePage extends AppCompatActivity {
             }
         });
     }
+
 
     private void initUI() {
         circleImageView = findViewById(R.id.profile_image_edit);
