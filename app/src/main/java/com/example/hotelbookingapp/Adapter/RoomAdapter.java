@@ -17,6 +17,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hotelbookingapp.Model.Khachsan;
 import com.example.hotelbookingapp.R;
 import com.example.hotelbookingapp.UI.DetailHotelActivity;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
@@ -24,9 +30,40 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> implements Filterable{
+public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> implements Filterable {
     List<Khachsan> list;
     List<Khachsan> listfull;
+    private final Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            ArrayList<Khachsan> newslist = new ArrayList<>();
+            if (charSequence == null || charSequence.length() == 0) {
+                newslist.addAll(listfull);
+            } else {
+                String newslist2 = charSequence.toString().toLowerCase(Locale.getDefault()).trim();
+
+                for (Khachsan ks : listfull) {
+                    if (ks.getTenks().toLowerCase(Locale.getDefault()).contains(newslist2))
+                        newslist.add(ks);
+                    if (ks.getDiachi().toLowerCase().contains(newslist2))
+                        newslist.add(ks);
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = newslist;
+            results.count = newslist.size();
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            list.clear();
+            list.addAll((ArrayList) filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
+    FirebaseUser firebaseUser;
+
     public RoomAdapter(List<Khachsan> list) {
         this.listfull = list;
         this.list = new ArrayList<>(listfull);
@@ -41,7 +78,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> im
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_listlocation, parent, false);
-        return new ViewHolder (v);
+        return new ViewHolder(v);
     }
 
     @Override
@@ -68,6 +105,29 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> im
                     .into(holder.img);
         }
 
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                    if (snapshot1.child("Favorites").child(ks.getTenks()).exists()) {
+                        Drawable drawable = holder.itemView.getContext().getDrawable(R.drawable.ic_baseline_favorite_24);
+                        holder.favorite.setImageDrawable(drawable);
+                    } else {
+                        Drawable drawable = holder.itemView.getContext().getDrawable(R.drawable.ic_baseline_favorite_border_24);
+                        holder.favorite.setImageDrawable(drawable);
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,43 +143,14 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> im
         return filter;
     }
 
-    private final Filter filter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence charSequence) {
-            ArrayList<Khachsan> newslist = new ArrayList<>();
-            if (charSequence == null || charSequence.length() == 0){
-                newslist.addAll(listfull);
-            }else{
-                String newslist2 = charSequence.toString().toLowerCase(Locale.getDefault()).trim();
-
-                for (Khachsan ks : listfull){
-                    if(ks.getTenks().toLowerCase(Locale.getDefault()).contains(newslist2))
-                        newslist.add(ks);
-                    if(ks.getDiachi().toLowerCase().contains(newslist2))
-                        newslist.add(ks);
-                }
-            }
-            FilterResults results = new FilterResults();
-            results.values = newslist;
-            results.count = newslist.size();
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-            list.clear();
-            list.addAll((ArrayList)filterResults.values);
-            notifyDataSetChanged();
-        }
-    };
-
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView img;
+        ImageView img, favorite;
         TextView tenks, diachi, gia;
         RelativeLayout ln_linear;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            favorite = itemView.findViewById(R.id.favorite);
             img = itemView.findViewById(R.id.img1);
             tenks = itemView.findViewById(R.id.tenkstext);
             diachi = itemView.findViewById(R.id.diachitext);

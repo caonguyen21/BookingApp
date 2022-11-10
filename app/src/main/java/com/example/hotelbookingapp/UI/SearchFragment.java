@@ -89,7 +89,7 @@ public class SearchFragment extends Fragment {
                 list.clear();
                 for (DataSnapshot child : snapshot.getChildren()) {
                     Khachsan ks = child.getValue(Khachsan.class);
-                    if (ks.getTrangthai()) {
+                    if (ks.isTrangthai() == true) {
                         list.add(ks);
                     }
                 }

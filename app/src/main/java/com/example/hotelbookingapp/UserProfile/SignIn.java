@@ -13,9 +13,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.hotelbookingapp.UI.MainScreen;
 import com.example.hotelbookingapp.Model.User;
 import com.example.hotelbookingapp.R;
+import com.example.hotelbookingapp.UI.MainScreen;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -32,9 +32,11 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
     TextView dangky, quenmatkhau;
     TextInputEditText password;
     EditText email;
+    User user;
     Button dangnhap;
     FirebaseAuth mAuth;
     ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,11 +115,16 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                 for (DataSnapshot child : snapshot.getChildren()) {
                     User user = child.getValue(User.class);
                     if (user.getEmail().equals(strEmail)) {
-                        exist = true;
-                        break;
+                        if (user.getStatus().equals(true)) {
+                            exist = true;
+                            break;
+                        } else {
+                            Toast.makeText(SignIn.this, "Tài khoản của bạn đã bị khóa!", Toast.LENGTH_LONG).show();
+                            progressDialog.dismiss();
+                        }
                     }
                 }
-                if (exist == true) {
+                if (exist.equals(true)) {
                     startActivity(new Intent(SignIn.this, MainScreen.class));
                     finish();
                 } else {

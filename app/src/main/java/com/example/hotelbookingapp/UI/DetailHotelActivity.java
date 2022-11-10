@@ -32,6 +32,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -61,6 +62,7 @@ public class DetailHotelActivity extends AppCompatActivity implements View.OnCli
     MenuItem menuItem;
     DatabaseReference reference;
     List<Khachsan> list;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +80,9 @@ public class DetailHotelActivity extends AppCompatActivity implements View.OnCli
 
         auth = FirebaseAuth.getInstance();
         txttenks = findViewById(R.id.txtTenks);
-        txtdiachi = findViewById(R.id.txtDiachi);
+
+        txtdiachi = findViewById(R.id.txtDiachiCT);
+
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         txtdiachi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,15 +161,15 @@ public class DetailHotelActivity extends AppCompatActivity implements View.OnCli
         String url3 = khachsan.getHinh3();
         String url4 = khachsan.getHinh4();
         String tenDiaDiem = txttenks.getText().toString();
-        String diaChi = txtdiachi.getText().toString();
+        String diaChiCT = txtdiachi.getText().toString();
         String moTa = txtmota.getText().toString();
         String gia = khachsan.getGia();
         String slp = khachsan.getSlphongdon();
         String dc = khachsan.getDiachi();
         String sdt = khachsan.getSdtks();
-        Boolean trangthai = khachsan.getTrangthai();
+        Boolean trangthai = khachsan.isTrangthai();
 
-        Khachsan diaDiem1 = new Khachsan(url1, tenDiaDiem, diaChi, gia, url2, url3, url4, dc, moTa, slp, sdt, trangthai);
+        Khachsan diaDiem1 = new Khachsan(url1, tenDiaDiem, dc, gia, url2, url3, url4, diaChiCT, moTa, slp, sdt, trangthai);
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
         reference.child(auth.getUid()).child("Favorites").child(tenDiaDiem)
                 .setValue(diaDiem1)
@@ -235,7 +239,7 @@ public class DetailHotelActivity extends AppCompatActivity implements View.OnCli
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         isInMyFavorite = snapshot.exists(); //true if exists, false nguoc lai
                         if (isInMyFavorite) {
-                            Drawable myDrawable = getResources().getDrawable(R.drawable.ic_baseline_favorite_24);
+                            Drawable myDrawable = getResources().getDrawable(R.drawable.ic_baseline_favorite_24_white);
                             menuItem.setIcon(myDrawable);
                         } else {
                             Drawable myDrawable = getResources().getDrawable(R.drawable.ic_baseline_favorite_border_24);

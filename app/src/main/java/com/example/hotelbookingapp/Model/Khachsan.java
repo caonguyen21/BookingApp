@@ -14,12 +14,12 @@ public class Khachsan implements Serializable {
     String diachiCT;
     String mota;
     String Sdtks;
-    Boolean trangthai;
+    boolean trangthai;
 
     public Khachsan() {
     }
 
-    public Khachsan(String hinh, String tenks, String diachi, String gia, String hinh2, String hinh3, String hinh4, String diachiCT, String mota, String slphongdon, String Sdtks, Boolean trangthai) {
+    public Khachsan(String hinh, String tenks, String diachi, String gia, String hinh2, String hinh3, String hinh4, String diachiCT, String mota, String slphongdon, String Sdtks, boolean trangthai) {
         this.hinh = hinh;
         this.tenks = tenks;
         this.diachi = diachi;
@@ -34,11 +34,11 @@ public class Khachsan implements Serializable {
         this.trangthai = trangthai;
     }
 
-    public Boolean getTrangthai() {
+    public boolean isTrangthai() {
         return trangthai;
     }
 
-    public void setTrangthai(Boolean trangthai) {
+    public void setTrangthai(boolean trangthai) {
         this.trangthai = trangthai;
     }
 

@@ -176,7 +176,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/txtDiachi"
+                        android:id="@+id/txtDiachiCT"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txtTenks"
@@ -193,7 +193,7 @@
                         android:id="@+id/mieuta"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtDiachi"
+                        android:layout_below="@+id/txtDiachiCT"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"

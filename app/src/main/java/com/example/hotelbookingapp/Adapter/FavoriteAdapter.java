@@ -16,6 +16,11 @@ import com.example.hotelbookingapp.Model.Khachsan;
 import com.example.hotelbookingapp.R;
 import com.example.hotelbookingapp.UI.DetailHotelActivity;
 import com.example.hotelbookingapp.UI.FavoriteFragment;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
@@ -67,6 +72,28 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
                     .into(holder.img);
         }
 
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                    if (snapshot1.child("Favorites").child(ks.getTenks()).exists()) {
+                        Drawable drawable = holder.itemView.getContext().getDrawable(R.drawable.ic_baseline_favorite_24);
+                        holder.favorite.setImageDrawable(drawable);
+                    } else {
+                        Drawable drawable = holder.itemView.getContext().getDrawable(R.drawable.ic_baseline_favorite_border_24);
+                        holder.favorite.setImageDrawable(drawable);
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,13 +106,13 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView img;
+        ImageView img, favorite;
         TextView tenks, diachi, gia;
         RelativeLayout ln_linear;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            favorite = itemView.findViewById(R.id.favorite);
             img = itemView.findViewById(R.id.img1);
             tenks = itemView.findViewById(R.id.tenkstext);
             diachi = itemView.findViewById(R.id.diachitext);
