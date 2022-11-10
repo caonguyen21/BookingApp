@@ -14,4 +14,7 @@
     <item
         android:id="@+id/menu_lowtohigh"
         android:title="Giá thấp tới cao" />
+    <item
+        android:id="@+id/menu_fillerQuan"
+        android:title="Tìm theo quận" />
 </menu>

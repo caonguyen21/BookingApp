@@ -95,6 +95,8 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> im
                 for (Khachsan ks : listfull){
                     if(ks.getTenks().toLowerCase(Locale.getDefault()).contains(newslist2))
                         newslist.add(ks);
+                    if(ks.getDiachi().toLowerCase().contains(newslist2))
+                        newslist.add(ks);
                 }
             }
             FilterResults results = new FilterResults();

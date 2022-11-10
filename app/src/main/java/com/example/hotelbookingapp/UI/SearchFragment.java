@@ -2,6 +2,7 @@ package com.example.hotelbookingapp.UI;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,6 +14,7 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -36,13 +38,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchFragment extends Fragment {
-
     List<Khachsan> list;
     RecyclerView recyclerView;
     RoomAdapter apdapterRoom;
     SearchView search_view;
     Toolbar toolbar;
     MenuItem menuItem;
+    String[] ks = {"Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10"};
     private DatabaseReference reference;
     private FirebaseDatabase database;
 
@@ -61,8 +63,7 @@ public class SearchFragment extends Fragment {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
         activity.getSupportActionBar().setTitle("");
-        toolbar.setOverflowIcon(ContextCompat.getDrawable(activity,R.drawable.ic_baseline_sort_24));
-
+        toolbar.setOverflowIcon(ContextCompat.getDrawable(activity, R.drawable.ic_baseline_sort_24));
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("TPHCM");
@@ -88,7 +89,9 @@ public class SearchFragment extends Fragment {
                 list.clear();
                 for (DataSnapshot child : snapshot.getChildren()) {
                     Khachsan ks = child.getValue(Khachsan.class);
-                    list.add(ks);
+                    if (ks.getTrangthai()) {
+                        list.add(ks);
+                    }
                 }
                 apdapterRoom = new RoomAdapter(list);
                 recyclerView.setAdapter(apdapterRoom);
@@ -161,6 +164,7 @@ public class SearchFragment extends Fragment {
         search_view.setIconified(true);
         SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
         search_view.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+        search_view.setQueryHint("Tìm kiếm...");
         search_view.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -187,6 +191,32 @@ public class SearchFragment extends Fragment {
             case R.id.menu_lowtohigh:
                 lowtohigh();
                 break;
+
+            case R.id.menu_fillerQuan:
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Chọn quận muốn tìm");
+                // add a list
+                builder.setItems(ks, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0: //quan1
+                                search_view.setQuery("2", true);
+                            case 1: // quan2
+                                search_view.setQuery("2", true);
+                            case 2: // camel
+                                search_view.setQuery("2", true);
+                            case 3: // sheep
+                                search_view.setQuery("2", true);
+                            case 4: // goat
+                                search_view.setQuery("2", true);
+                        }
+                    }
+                });
+
+                // create and show the alert dialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
 
             default:
                 break;

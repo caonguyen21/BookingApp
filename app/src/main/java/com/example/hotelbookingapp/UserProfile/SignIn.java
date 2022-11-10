@@ -122,6 +122,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                     finish();
                 } else {
                     Toast.makeText(SignIn.this, "Đăng nhập thất bại! Hãy kiểm tra lại thông tin đăng nhập!", Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
                 }
             }
 

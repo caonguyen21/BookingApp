@@ -144,6 +144,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                             finishAffinity();
                         } else {
                             Toast.makeText(SignUp.this, "Tạo tài khoản thất bại.", Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
                         }
                     }
                 });
