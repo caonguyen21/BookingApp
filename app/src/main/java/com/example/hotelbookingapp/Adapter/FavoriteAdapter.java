@@ -16,6 +16,7 @@ import com.example.hotelbookingapp.Model.Khachsan;
 import com.example.hotelbookingapp.R;
 import com.example.hotelbookingapp.UI.DetailHotelActivity;
 import com.example.hotelbookingapp.UI.FavoriteFragment;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +31,8 @@ import java.util.Locale;
 public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
     List<Khachsan> list;
     FavoriteFragment context;
+    FirebaseAuth auth;
+    Boolean isMyFavorites = false;
 
     public FavoriteAdapter(FavoriteFragment context, List<Khachsan> list) {
         this.list = list;
@@ -72,19 +75,18 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
                     .into(holder.img);
         }
 
+        auth = FirebaseAuth.getInstance();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                    if (snapshot1.child("Favorites").child(ks.getTenks()).exists()) {
-                        Drawable drawable = holder.itemView.getContext().getDrawable(R.drawable.ic_baseline_favorite_24);
-                        holder.favorite.setImageDrawable(drawable);
-                    } else {
-                        Drawable drawable = holder.itemView.getContext().getDrawable(R.drawable.ic_baseline_favorite_border_24);
-                        holder.favorite.setImageDrawable(drawable);
-                    }
-
+                isMyFavorites = snapshot.child("Favorites").child(ks.getTenks()).exists();
+                if (isMyFavorites) {
+                    Drawable drawable = holder.itemView.getContext().getDrawable(R.drawable.ic_baseline_favorite_24);
+                    holder.favorite.setImageDrawable(drawable);
+                } else {
+                    Drawable drawable = holder.itemView.getContext().getDrawable(R.drawable.ic_baseline_favorite_border_24);
+                    holder.favorite.setImageDrawable(drawable);
                 }
             }
 

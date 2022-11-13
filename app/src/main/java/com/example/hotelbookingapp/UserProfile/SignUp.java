@@ -139,6 +139,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                             user.put("username", username);
                             user.put("phone", phone);
                             user.put("status" ,true);
+                            user.put("image" , "1");
                             databaseReference.child(mAuth.getCurrentUser().getUid()).setValue(user);
                             Toast.makeText(SignUp.this, "Tạo tài khoản thành công.", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(SignUp.this, SignIn.class));

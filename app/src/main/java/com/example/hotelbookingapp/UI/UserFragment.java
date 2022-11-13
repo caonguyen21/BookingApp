@@ -146,7 +146,7 @@ public class UserFragment extends Fragment {
                         edt_email.setText(user.getEmail());
                         edt_phone.setText(user.getPhone());
                         edt_name.setText(user.getUsername());
-                        if (user.getImage() == null) {
+                        if (user.getImage() == "1") {
                             Drawable drawable = getResources().getDrawable(R.drawable.avatar);
                             profile_image.setImageDrawable(drawable);
                         } else {
