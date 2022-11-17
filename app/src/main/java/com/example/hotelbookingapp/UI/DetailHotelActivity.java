@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
+import com.example.hotelbookingapp.Model.Booked;
 import com.example.hotelbookingapp.Model.Khachsan;
 import com.example.hotelbookingapp.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -50,6 +51,7 @@ import kr.co.prnd.readmore.ReadMoreTextView;
 public class DetailHotelActivity extends AppCompatActivity implements View.OnClickListener {
 
     Khachsan khachsan;
+    Booked booked;
     TextView txttenks, txtdiachi, txtgia, toolbartenks;
     ReadMoreTextView txtmota;
     ImageView img, img2, img3, img4;
@@ -278,8 +280,8 @@ public class DetailHotelActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View view) {
-       /* Intent intentdp = new Intent(view.getContext(), activity_payment.class);
-        intentdp.putExtra("clickdp", ActivityDetailHotel);
-        view.getContext().startActivity(intentdp);*/
+        Intent intentdp = new Intent(view.getContext(), PaymentActivity.class);
+        intentdp.putExtra("clickdp", khachsan);
+        view.getContext().startActivity(intentdp);
     }
 }

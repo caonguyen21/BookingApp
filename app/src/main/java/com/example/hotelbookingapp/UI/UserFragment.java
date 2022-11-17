@@ -17,8 +17,9 @@ import androidx.fragment.app.Fragment;
 
 import com.example.hotelbookingapp.Model.User;
 import com.example.hotelbookingapp.R;
-import com.example.hotelbookingapp.UserProfile.SignIn;
+import com.example.hotelbookingapp.UserProfile.ActivityUpdatePassword;
 import com.example.hotelbookingapp.UserProfile.EditProfilePage;
+import com.example.hotelbookingapp.UserProfile.SignIn;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.card.MaterialCardView;
@@ -62,7 +63,6 @@ public class UserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view;
         view = inflater.inflate(R.layout.fragment_user, container, false);
-
         // Inflate the layout for this fragment
         initUI(view);
         DisplayProfile();
@@ -72,10 +72,10 @@ public class UserFragment extends Fragment {
             requireActivity().startActivity(intent);
         });
 
-        /*updatePassword.setOnClickListener(view12 -> {
+        updatePassword.setOnClickListener(view12 -> {
             Intent intent = new Intent(getActivity(), ActivityUpdatePassword.class);
             requireActivity().startActivity(intent);
-        });*/
+        });
 
         updateProfile.setOnClickListener(view13 -> {
             btn_save.setVisibility(View.VISIBLE);
@@ -176,7 +176,6 @@ public class UserFragment extends Fragment {
             edt_phone.requestFocus();
             return;
         }
-
 
         HashMap User = new HashMap<>();
         user = FirebaseAuth.getInstance().getCurrentUser();

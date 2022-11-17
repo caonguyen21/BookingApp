@@ -37,6 +37,7 @@
         <entry key="..\:/Users/Cao Nguyen/Desktop/DoAnChuyenNganh/app/src/main/res/layout/activity_dang_ky.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/DoAnChuyenNganh/app/src/main/res/layout/activity_dang_nhap.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/DoAnChuyenNganh/app/src/main/res/layout/activity_main.xml" value="0.3875" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/activity_booked.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/activity_dang_ky.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/activity_dang_nhap.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/activity_detail.xml" value="0.259375" />
@@ -44,11 +45,15 @@
         <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/activity_detailhotel.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/activity_edit_profile_page.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/activity_main_screen.xml" value="0.259375" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/activity_payment.xml" value="0.259375" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/activity_sign_in.xml" value="0.259375" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/activity_update_password.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/activity_welcome.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/fragment_book.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/fragment_favorite.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/fragment_search.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/fragment_user.xml" value="0.259375" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/item_list2.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/layout/item_listlocation.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/menu/bottom_menu.xml" value="0.259375" />
         <entry key="..\:/Users/Cao Nguyen/Desktop/Hotel Booking App/app/src/main/res/menu/menu_favorite.xml" value="0.259375" />

@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hotelbookingapp.Adapter.BookAdapter;
+import com.example.hotelbookingapp.Adapter.RoomAdapter;
+import com.example.hotelbookingapp.Model.Booked;
 import com.example.hotelbookingapp.Model.Khachsan;
 import com.example.hotelbookingapp.Model.User;
 import com.example.hotelbookingapp.R;
@@ -33,7 +35,7 @@ public class BookFragment extends Fragment {
     TextView idxinchao, empty, empty2;
     DatabaseReference reference;
     BookAdapter bookAdapter;
-    List<Khachsan> listbook;
+    List<Booked> list;
     FirebaseAuth auth;
     RecyclerView recyclerView;
     private String userID;
@@ -54,15 +56,15 @@ public class BookFragment extends Fragment {
         //Toolbar welcome
         wellcome();
 
-        listbook = new ArrayList<>();
+        list = new ArrayList<>();
         auth = FirebaseAuth.getInstance();
-        reference = FirebaseDatabase.getInstance().getReference("Phongdadat");
+        reference = FirebaseDatabase.getInstance().getReference("phongdadat").child(auth.getUid());
         recyclerView = view.findViewById(R.id.rcv_book);
         //phan cach giua cac item
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        bookAdapter = new BookAdapter(this, listbook);
+        bookAdapter = new BookAdapter(list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(bookAdapter);
         //thay doi layout khi co item recyclerview
@@ -98,10 +100,10 @@ public class BookFragment extends Fragment {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                listbook.clear();
+                list.clear();
                 for (DataSnapshot child : snapshot.getChildren()) {
-                    Khachsan diaDiem = child.getValue(Khachsan.class);
-                    listbook.add(diaDiem);
+                    Booked booked = child.getValue(Booked.class);
+                    list.add(booked);
                 }
                 bookAdapter.notifyDataSetChanged();
             }

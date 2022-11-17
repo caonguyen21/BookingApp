@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.hotelbookingapp" >
+    package="com.example.hotelbookingapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -34,27 +34,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HotelBookingApp"
-        tools:targetApi="31" >
+        tools:targetApi="31">
         <activity
-            android:name=".UI.BookDetailActivity"
+            android:name=".UserProfile.ActivityUpdatePassword"
             android:exported="false" />
         <activity
             android:name=".UI.DetailHotelActivity"
             android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar.Bridge" >
+            android:theme="@style/Theme.MaterialComponents.NoActionBar.Bridge">
+
         </activity>
         <activity
             android:name=".UserProfile.EditProfilePage"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.NoActionBar.Bridge" />
         <activity
+            android:name=".UI.PaymentActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar.Bridge" />
+        <activity
             android:name=".UI.MainScreen"
             android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar.Bridge" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:theme="@style/Theme.MaterialComponents.NoActionBar.Bridge">
+
         </activity>
         <activity
             android:name=".UserProfile.SignUp"
@@ -63,12 +65,22 @@
         <activity
             android:name=".UserProfile.SignIn"
             android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar.Bridge" >
+            android:theme="@style/Theme.MaterialComponents.NoActionBar.Bridge">
+
         </activity>
         <activity
             android:name=".Welcome"
             android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar.Bridge" >
+            android:theme="@style/Theme.MaterialComponents.NoActionBar.Bridge">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".UI.DetailBookedActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar.Bridge">
 
         </activity>
 

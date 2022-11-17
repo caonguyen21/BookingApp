@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="6dp"
+    android:background="@color/gray"
+    app:cardCornerRadius="6dp"
+    app:cardUseCompatPadding="true">
+
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_baseline_image_24" />
+
+    <TextView
+        android:id="@+id/tenkstext2"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/img2"
+        android:text="Hotel Name"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <RatingBar
+        android:id="@+id/ratingBar422"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tenkstext2"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/img2"
+        android:rating="4" />
+
+    <TextView
+        android:id="@+id/diachitext2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ratingBar422"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/img2"
+        android:drawableStart="@drawable/ic_outline_location_on_24"
+        android:drawablePadding="10dp"
+        android:text="Dia chi"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/ngayden"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/diachitext2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/img2"
+        android:drawableStart="@drawable/ic_outline_calendar_month_24"
+        android:drawablePadding="2dp"
+        android:text="Nhận phòng: "
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/ngaydi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ngayden"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/img2"
+        android:drawablePadding="10dp"
+        android:text="Trả phòng    : "
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/txt_ngayden"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/diachitext2"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/ngayden"
+        android:text="Ngay den"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/txt_ngaydi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_ngayden"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/ngaydi"
+        android:text="Ngay di"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/giacho1dem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_ngaydi"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/img2"
+        android:drawableStart="@drawable/ic_outline_account_balance_wallet_24"
+        android:drawablePadding="10dp"
+        android:text="Tổng tiền: "
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/itemtongtien"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ngaydi"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/giacho1dem"
+        android:drawablePadding="5dp"
+        android:text="1.000.000"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/itemtongtien"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/darker_gray" />
+
+    <Button
+        android:id="@+id/btnhuydatphong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line"
+        android:layout_marginLeft="100dp"
+        android:layout_toRightOf="@id/img2"
+        android:text="Hủy đặt phòng"
+        android:textAllCaps="false"
+        android:textSize="20dp" />
+</RelativeLayout>
