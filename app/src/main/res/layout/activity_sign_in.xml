@@ -72,17 +72,6 @@
         android:layout_marginTop="16dp">
 
         <TextView
-            android:id="@+id/txt_Quenmatkhau"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="70dp"
-            android:fontFamily="sans-serif-black"
-            android:text="Quên mật khẩu?"
-            android:textColor="@color/white"
-            android:textSize="12dp"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/txt_Dangkytaikhoan"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

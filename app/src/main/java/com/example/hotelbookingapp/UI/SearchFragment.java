@@ -44,7 +44,7 @@ public class SearchFragment extends Fragment {
     SearchView search_view;
     Toolbar toolbar;
     MenuItem menuItem;
-    String[] ks = {"Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10"};
+    String[] ks = {"Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11", "Quận 12"};
     private DatabaseReference reference;
     private FirebaseDatabase database;
 
@@ -201,15 +201,29 @@ public class SearchFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
                             case 0: //quan1
-                                search_view.setQuery("2", true);
+                                search_view.setQuery("1", true);
                             case 1: // quan2
                                 search_view.setQuery("2", true);
                             case 2: // camel
-                                search_view.setQuery("2", true);
+                                search_view.setQuery("3", true);
                             case 3: // sheep
-                                search_view.setQuery("2", true);
+                                search_view.setQuery("4", true);
                             case 4: // goat
-                                search_view.setQuery("2", true);
+                                search_view.setQuery("5", true);
+                            case 5: // sheep
+                                search_view.setQuery("6", true);
+                            case 6: // goat
+                                search_view.setQuery("7", true);
+                            case 7: // sheep
+                                search_view.setQuery("8", true);
+                            case 8: // goat
+                                search_view.setQuery("9", true);
+                            case 9: // sheep
+                                search_view.setQuery("10", true);
+                            case 10: // goat
+                                search_view.setQuery("11", true);
+                            case 11: // sheep
+                                search_view.setQuery("12", true);
                         }
                     }
                 });

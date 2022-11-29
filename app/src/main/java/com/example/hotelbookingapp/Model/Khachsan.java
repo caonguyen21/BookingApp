@@ -7,6 +7,7 @@ public class Khachsan implements Serializable {
     String tenks;
     String diachi;
     String gia;
+    String gia2;
     String hinh2;
     String hinh3;
     String slphongdon;
@@ -19,7 +20,7 @@ public class Khachsan implements Serializable {
     public Khachsan() {
     }
 
-    public Khachsan(String hinh, String tenks, String diachi, String gia, String hinh2, String hinh3, String hinh4, String diachiCT, String mota, String slphongdon, String Sdtks, boolean trangthai) {
+    public Khachsan(String hinh, String tenks, String diachi, String gia, String hinh2, String hinh3, String hinh4, String diachiCT, String mota, String slphongdon, String Sdtks, boolean trangthai, String gia2) {
         this.hinh = hinh;
         this.tenks = tenks;
         this.diachi = diachi;
@@ -32,6 +33,15 @@ public class Khachsan implements Serializable {
         this.slphongdon = slphongdon;
         this.Sdtks = Sdtks;
         this.trangthai = trangthai;
+        this.gia2 = gia2;
+    }
+
+    public String getGia2() {
+        return gia2;
+    }
+
+    public void setGia2(String gia2) {
+        this.gia2 = gia2;
     }
 
     public boolean isTrangthai() {

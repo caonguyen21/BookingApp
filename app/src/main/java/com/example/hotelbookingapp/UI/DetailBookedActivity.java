@@ -37,7 +37,7 @@ import kr.co.prnd.readmore.ReadMoreTextView;
 
 public class DetailBookedActivity extends AppCompatActivity {
     Booked booked;
-    TextView txttenks2, txtdiachi2, txtgia2, sdt, toolbartenks;
+    TextView txttenks2, txtdiachi2, txtgia2, sdt, toolbartenks, tinhtrang;
     ReadMoreTextView txtmota2;
     ImageView img2s, img22, img32, img42;
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -71,6 +71,7 @@ public class DetailBookedActivity extends AppCompatActivity {
         img32 = findViewById(R.id.img32);
         img42 = findViewById(R.id.img42);
         sdt = findViewById(R.id.sdtks);
+        tinhtrang = findViewById(R.id.tinhtrang);
         sdt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,7 +100,16 @@ public class DetailBookedActivity extends AppCompatActivity {
         Picasso.get().load(booked.getHinh2()).fit().centerCrop().into(img22);
         Picasso.get().load(booked.getHinh3()).fit().centerCrop().into(img32);
         Picasso.get().load(booked.getHinh4()).fit().centerCrop().into(img42);
+        kttinhtrang();
+    }
 
+    private void kttinhtrang() {
+        Boolean status = booked.getStatus();
+        if (status.equals(true)) {
+            tinhtrang.setText("Đơn đặt phòng đã được duyệt!");
+        } else {
+            tinhtrang.setText("Đơn đặt phòng chưa được duyệt!");
+        }
     }
 
     private boolean isTelephonyEnabled() {

@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="dsadas"
+                android:text="tenks"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -252,12 +252,24 @@
                         android:layout_below="@+id/lienhe"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
                         android:drawableStart="@drawable/ic_outline_contact_phone_24"
                         android:drawablePadding="10dp"
                         android:text="sdt"
                         android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/tinhtrang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/sdtks"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        android:text="tinh trang don hang"
+                        android:textColor="@color/white"
                         android:textSize="20dp"
-                        android:layout_marginBottom="20dp"/>
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
 

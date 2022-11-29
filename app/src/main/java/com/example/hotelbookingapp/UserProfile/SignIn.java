@@ -47,7 +47,6 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         dangnhap.setOnClickListener(this);
         dangky = findViewById(R.id.txt_Dangkytaikhoan);
         dangky.setOnClickListener(this);
-        quenmatkhau = findViewById(R.id.txt_Quenmatkhau);
         mAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
     }

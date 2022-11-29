@@ -166,12 +166,13 @@ public class DetailHotelActivity extends AppCompatActivity implements View.OnCli
         String diaChiCT = txtdiachi.getText().toString();
         String moTa = txtmota.getText().toString();
         String gia = khachsan.getGia();
+        String gia2 = khachsan.getGia2();
         String slp = khachsan.getSlphongdon();
         String dc = khachsan.getDiachi();
         String sdt = khachsan.getSdtks();
         Boolean trangthai = khachsan.isTrangthai();
 
-        Khachsan diaDiem1 = new Khachsan(url1, tenDiaDiem, dc, gia, url2, url3, url4, diaChiCT, moTa, slp, sdt, trangthai);
+        Khachsan diaDiem1 = new Khachsan(url1, tenDiaDiem, dc, gia, url2, url3, url4, diaChiCT, moTa, slp, sdt, trangthai, gia2);
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
         reference.child(auth.getUid()).child("Favorites").child(tenDiaDiem)
                 .setValue(diaDiem1)
