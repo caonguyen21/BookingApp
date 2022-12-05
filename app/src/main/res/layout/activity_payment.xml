@@ -21,7 +21,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="dsadas"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -48,14 +47,14 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/chongay"
+            android:id="@+id/tongtien"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="9dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="9dp"
             android:drawablePadding="10dp"
-            android:text="Chọn phòng"
+            android:text="Tổng tiền "
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -63,41 +62,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_chonngaydi" />
 
-        <Spinner
-            android:id="@+id/chongayedt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="9dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="9dp"
-            android:textColor="@color/white"
-            android:textSize="25dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chongay" />
-
-        <TextView
-            android:id="@+id/tongtien"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="9dp"
-            android:layout_marginEnd="9dp"
-            android:drawablePadding="10dp"
-            android:text="Tổng tiền "
-            android:layout_marginTop="8dp"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chongayedt" />
-
         <TextView
             android:id="@+id/txttongtien"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:drawableStart="@drawable/ic_outline_account_balance_wallet_24"
             android:drawablePadding="10dp"
             android:paddingLeft="10dp"
@@ -106,8 +76,7 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tongtien"
-            tools:ignore="MissingConstraints"
-            android:visibility="gone"/>
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/hetphong"
@@ -151,7 +120,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="9dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="9dp"
             android:drawablePadding="10dp"
             android:text="Giá cho 1 đêm"
@@ -170,7 +139,6 @@
             android:drawableStart="@drawable/ic_outline_account_balance_wallet_24"
             android:drawablePadding="10dp"
             android:paddingLeft="10dp"
-            android:text="1.000.000"
             android:textColor="@color/white"
             android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -181,7 +149,7 @@
             android:id="@+id/ngayden"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="Ngày nhận phòng"
             android:textColor="@color/white"
             android:textSize="20dp"
@@ -211,7 +179,7 @@
             android:id="@+id/ngaydi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:text="Ngày trả phòng"
             android:textColor="@color/white"
             android:textSize="20dp"
@@ -236,6 +204,39 @@
             app:layout_constraintHorizontal_bias="0.476"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ngaydi" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="Hiện bạn đang không có chuyến đi nào"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/text22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="Trang này hiển thị tất cả các đặt chỗ của bạn."
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:visibility="gone" />
+        </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

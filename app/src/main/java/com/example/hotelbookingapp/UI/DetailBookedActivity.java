@@ -64,6 +64,7 @@ public class DetailBookedActivity extends AppCompatActivity {
                 getLocation();
             }
         });
+
         txtgia2 = findViewById(R.id.txtGia2);
         txtmota2 = findViewById(R.id.txtMoto2);
         img2s = findViewById(R.id.img2s);
@@ -96,6 +97,7 @@ public class DetailBookedActivity extends AppCompatActivity {
         NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
         String get_gia = currencyVN.format(Integer.parseInt(booked.getGia()));
         txtgia2.setText(get_gia);
+
         Picasso.get().load(booked.getHinh()).fit().centerCrop().into(img2s);
         Picasso.get().load(booked.getHinh2()).fit().centerCrop().into(img22);
         Picasso.get().load(booked.getHinh3()).fit().centerCrop().into(img32);

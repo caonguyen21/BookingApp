@@ -3,15 +3,13 @@ package com.example.hotelbookingapp.UI;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,16 +39,13 @@ import java.util.Locale;
 import java.util.Map;
 
 public class PaymentActivity extends AppCompatActivity {
-    Spinner chongayedt;
     ImageView img;
     Button btndatphong;
     TextView txttenks, txtgiaphong, txttongtien, hetphong, chonkhachsan, text1, text2;
-    Khachsan ks;
+    Khachsan ks, gia2;
     Toolbar toolbar;
     EditText edt_chonngayden, edt_chonngaydi;
     Calendar calendarOne, calendarTwo;
-    String userId;
-    String[] theloai = {"Phòng đơn", "Phòng đôi"};
     private DatabaseReference reference;
     private DatePickerDialog picker;
     private FirebaseAuth mAuth;
@@ -72,14 +67,6 @@ public class PaymentActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
-        //spiner
-        chongayedt = findViewById(R.id.chongayedt);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(PaymentActivity.this, android.R.layout.simple_spinner_item, theloai);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        chongayedt.setAdapter(arrayAdapter);
-
-
-        //end spiner
         txttenks = findViewById(R.id.tenks);
         txtgiaphong = findViewById(R.id.gia);
         img = findViewById(R.id.imgdp);
@@ -89,21 +76,27 @@ public class PaymentActivity extends AppCompatActivity {
         hetphong = findViewById(R.id.hetphong);
         txttongtien = findViewById(R.id.txttongtien);
         chonkhachsan = findViewById(R.id.chonkhachsan);
-        text1 = findViewById(R.id.text1);
-        text2 = findViewById(R.id.text2);
+        text1 = findViewById(R.id.text11);
+        text2 = findViewById(R.id.text22);
+
         //get data
         Intent intentdp = getIntent();
         ks = (Khachsan) intentdp.getSerializableExtra("clickdp");
+        int loai = intentdp.getExtras().getInt("loai1");
+        Log.e("loai cua cai phong", "" + loai);
         txttenks.setText(ks.getTenks());
         String settenks = ks.getTenks();
-
         Locale localeVN = new Locale("vi", "VN");
         NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
-       /* String get_gia = currencyVN.format(Integer.parseInt(ks.getGia()));
-        txtgiaphong.setText(get_gia);*/
-
-      /*  String get_gia2 = currencyVN.format(Integer.parseInt(ks.getGia()));
-        txttongtien.setText(get_gia2);*/
+        if (loai == 1) {
+            String get_gia = currencyVN.format(Integer.parseInt(ks.getGia()));
+            txtgiaphong.setText(get_gia);
+            txttongtien.setText(get_gia);
+        } else {
+            String get_gia = currencyVN.format(Integer.parseInt(ks.getGia2()));
+            txtgiaphong.setText(get_gia);
+            txttongtien.setText(get_gia);
+        }
 
         Picasso.get().load(ks.getHinh()).fit().centerCrop().into(img);
         chonkhachsan.setText(settenks);
@@ -124,8 +117,6 @@ public class PaymentActivity extends AppCompatActivity {
             }
         });
 
-        //   readdata();
-
         btndatphong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,7 +130,7 @@ public class PaymentActivity extends AppCompatActivity {
                     return;
                 }
 
-                if (ngaydi.isEmpty() && ngayden.isEmpty()) {
+                if (ngaydi.isEmpty()) {
                     edt_chonngaydi.setError("");
                     Toast.makeText(PaymentActivity.this, "Vui lòng nhập ngày trả phòng!", Toast.LENGTH_SHORT).show();
                     edt_chonngaydi.requestFocus();
@@ -165,36 +156,10 @@ public class PaymentActivity extends AppCompatActivity {
 
                     }
                 });
-            }
-        });
-
-        chongayedt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i) {
-                    case 0:
-                        //  String get_gia = currencyVN.format(Integer.parseInt());
-                        txtgiaphong.setText(ks.getGia());
-                        ngaydi();
-                        ngayden();
-                        tongtien(txtgiaphong.getText().toString());
-                        break;
-                    case 1:
-                        //   String gia = currencyVN.format(Integer.parseInt(ks.getGia2()));
-                        txtgiaphong.setText(ks.getGia2());
-                        ngaydi();
-                        ngayden();
-                        tongtien(txtgiaphong.getText().toString());
-                        break;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
-
+        readdata();
     }
 
     private void readdata() {
@@ -220,28 +185,28 @@ public class PaymentActivity extends AppCompatActivity {
         });
     }
 
-
     private void updateKs(String tenks, String diachi, String diachiCT, String gia, String mota, String hinh, String hinh2, String hinh3, String hinh4, String slphongdon, String sdtks) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         String strtenks = txttenks.getText().toString().trim();
-        String email = user.getUid();
-        String emailkh = user.getEmail();
         String ngayden = edt_chonngayden.getText().toString();
         String ngaydi = edt_chonngaydi.getText().toString();
+        String email = user.getUid();
+        String emailkh = user.getEmail();
         String tongtien = txttongtien.getText().toString();
         String tenkh = text1.getText().toString();
         String sdt = text2.getText().toString();
+
         DatabaseReference myref = database.getReference("phongdadat");
         Map<String, Object> map = new HashMap<>();
         map.put("ngayden", ngayden);
         map.put("ngaydi", ngaydi);
         map.put("tongtien", tongtien);
-        map.put("tenkhachhang", emailkh);
         map.put("tenkh", tenkh);
+        map.put("tenkhachhang", emailkh);
         map.put("sdtkh", sdt);
         map.put("status", false);
-        myref.child(email).child(strtenks).updateChildren(map);
 
+        myref.child(email).child(strtenks).updateChildren(map);
 
         HashMap ks = new HashMap();
         ks.put("tenks", tenks);
@@ -270,18 +235,32 @@ public class PaymentActivity extends AppCompatActivity {
         finish();
     }
 
-    private void tongtien(String a) {
+
+    private void tongtien() {
+        Intent intentdp = getIntent();
+        ks = (Khachsan) intentdp.getSerializableExtra("clickdp");
+        int loai = intentdp.getExtras().getInt("loai1");
+
         int songay = (int) ((calendarTwo.getTimeInMillis() - calendarOne.getTimeInMillis()) / (1000 * 60 * 60 * 24));
         if (songay == 0) {
             songay = 1;
         }
         Locale localeVN = new Locale("vi", "VN");
         NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
-        Float giaphong = Float.parseFloat(a);
-        Float tongtien = songay * giaphong;
-        String tongtien2 = currencyVN.format(tongtien);
-        txttongtien.setText(tongtien2);
-        txttongtien.setVisibility(View.VISIBLE);
+        if (loai == 1) {
+            String gia = ks.getGia();
+            Float giaphong = Float.parseFloat(gia);
+            Float tongtien = songay * giaphong;
+            String tongtien2 = currencyVN.format(tongtien);
+            txttongtien.setText(tongtien2);
+        } else {
+            String gia = ks.getGia2();
+            Float giaphong = Float.parseFloat(gia);
+            Float tongtien = songay * giaphong;
+            String tongtien2 = currencyVN.format(tongtien);
+            txttongtien.setText(tongtien2);
+        }
+
     }
 
     private void ngayden() {
@@ -319,7 +298,7 @@ public class PaymentActivity extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int dayofMonth) {
                 calendarTwo.set(year, month, dayofMonth);
                 edt_chonngaydi.setText(dayofMonth + "/" + (month + 1) + "/" + year);
-                tongtien(txtgiaphong.getText().toString());
+                tongtien();
             }
         }, year, month, day + 1);
         picker.getDatePicker().setMinDate(calendarTwo.getTimeInMillis());

@@ -2,6 +2,7 @@ package com.example.hotelbookingapp.UI;
 
 import android.Manifest;
 import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
@@ -65,6 +67,7 @@ public class DetailHotelActivity extends AppCompatActivity implements View.OnCli
     DatabaseReference reference;
     List<Khachsan> list;
     FirebaseUser user;
+    String[] theloai = {"Phòng đơn", "Phòng đôi"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -281,8 +284,27 @@ public class DetailHotelActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View view) {
-        Intent intentdp = new Intent(view.getContext(), PaymentActivity.class);
-        intentdp.putExtra("clickdp", khachsan);
-        view.getContext().startActivity(intentdp);
+        AlertDialog.Builder builder = new AlertDialog.Builder(DetailHotelActivity.this);
+        builder.setTitle("Chọn loại phòng")
+                .setItems(theloai, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+                                Intent intentdp = new Intent(view.getContext(), PaymentActivity.class);
+                                intentdp.putExtra("clickdp", khachsan);
+                                intentdp.putExtra("loai1", 1);
+                                view.getContext().startActivity(intentdp);
+                                break;
+                            case 1:
+                                Intent intent = new Intent(view.getContext(), PaymentActivity.class);
+                                intent.putExtra("clickdp", khachsan);
+                                intent.putExtra("loai1", 2);
+                                view.getContext().startActivity(intent);
+                                break;
+                        }
+                    }
+                });
+        builder.create();
+        builder.show();
     }
 }

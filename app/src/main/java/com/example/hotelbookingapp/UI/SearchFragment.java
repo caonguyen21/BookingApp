@@ -201,29 +201,41 @@ public class SearchFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
                             case 0: //quan1
-                                search_view.setQuery("1", true);
+                                search_view.setQuery("Quận 1,", true);
+                                break;
                             case 1: // quan2
-                                search_view.setQuery("2", true);
+                                search_view.setQuery("Quận 2,", true);
+                                break;
                             case 2: // camel
-                                search_view.setQuery("3", true);
+                                search_view.setQuery("Quận 3,", true);
+                                break;
                             case 3: // sheep
-                                search_view.setQuery("4", true);
+                                search_view.setQuery("Quận 4,", true);
+                                break;
                             case 4: // goat
-                                search_view.setQuery("5", true);
+                                search_view.setQuery("Quận 5,", true);
+                                break;
                             case 5: // sheep
-                                search_view.setQuery("6", true);
+                                search_view.setQuery("Quận 6,", true);
+                                break;
                             case 6: // goat
-                                search_view.setQuery("7", true);
+                                search_view.setQuery("Quận 7,", true);
+                                break;
                             case 7: // sheep
-                                search_view.setQuery("8", true);
+                                search_view.setQuery("Quận 8,", true);
+                                break;
                             case 8: // goat
-                                search_view.setQuery("9", true);
+                                search_view.setQuery("Quận 9,", true);
+                                break;
                             case 9: // sheep
-                                search_view.setQuery("10", true);
+                                search_view.setQuery("Quận 10,", true);
+                                break;
                             case 10: // goat
-                                search_view.setQuery("11", true);
+                                search_view.setQuery("Quận 11,", true);
+                                break;
                             case 11: // sheep
-                                search_view.setQuery("12", true);
+                                search_view.setQuery("Quận 12,", true);
+                                break;
                         }
                     }
                 });
