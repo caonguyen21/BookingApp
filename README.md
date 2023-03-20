@@ -26,6 +26,7 @@ Chức năng điều chỉnh hồ sơ cá nhân
 
 2. Hình ảnh demo:
 2.1 App đặt khách sạn cho khách hàng
+
 ![image](https://user-images.githubusercontent.com/106511965/226413624-153ba982-4219-442e-8d24-a50691d601f1.png)
 ![image](https://user-images.githubusercontent.com/106511965/226413668-fd0b1400-3682-4c02-b366-8569a8b0e129.png)
 ![image](https://user-images.githubusercontent.com/106511965/226413699-34c45991-99aa-4119-9b57-78538662ce1c.png)
@@ -33,12 +34,16 @@ Chức năng điều chỉnh hồ sơ cá nhân
 ![image](https://user-images.githubusercontent.com/106511965/226413752-a5da9b39-4939-4502-829c-d51736c84be0.png)
 ![image](https://user-images.githubusercontent.com/106511965/226413770-e5d40d43-8214-48bf-823d-32556e553b1d.png)
 ![image](https://user-images.githubusercontent.com/106511965/226413803-545b3953-fc4b-456c-97a2-2aa5dd0492fa.png)
+
 2.2 App quản lý khách sạn
 2.2.1 Bên phía Admin
+
 ![image](https://user-images.githubusercontent.com/106511965/226413854-91b6a293-8dd0-4ed7-ac2f-5b77a9fdfb75.png)
 ![image](https://user-images.githubusercontent.com/106511965/226413874-f2358897-326e-4c6b-ac4b-df298a1ea0f3.png)
 ![image](https://user-images.githubusercontent.com/106511965/226413917-63890c20-0bf2-4038-8d36-dfda2773f623.png)
+
 2.2.2 Bên phía chủ khách sạn
+
 ![image](https://user-images.githubusercontent.com/106511965/226414429-a8dae6bb-7c76-4e43-83b7-b03a08a43590.png)
 ![image](https://user-images.githubusercontent.com/106511965/226414450-541cac09-5398-4d5c-9904-1e67a706da03.png)
 ![image](https://user-images.githubusercontent.com/106511965/226414485-bbe7d408-a542-482d-a08d-5b8bcdb555a0.png)
