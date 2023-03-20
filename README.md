@@ -1,30 +1,37 @@
 Trong những năm gần đây, du lịch nước ta đã có những bước phát triển mạnh, đóng góp một phần đáng kể vào GDP của cả nước. Để có được kết quả như vậy là nhờ một trong những đóng góp không nhỏ của ngành cho thuê và đặt phòng khách sạn. Do đó chúng em chọn đề tài App đặt khách sạn để có thể nghiên cứu và thực hiện một dự án nhỏ để có thể học hỏi kinh nghiệm và rút ra được bài học cho những đồ án sau này.
 
 1. Các thành phần chức năng của hệ thống
+
 1.1 Chức năng của khách hàng
+
 Chức năng đăng nhập tài khoản
-Chức năng đăng ký tài khoản
-Chức năng hiển thị khách sạn 
-Chức năng hiển thị chi tiết khách sạn
-Chức năng đặt phòng 
-Chức năng hủy đặt phòng 
-Chức năng tìm kiếm khách sạn
-Chức năng bản đồ
-Chức năng quản lý tài khoản 
-Chức năng thêm khách sạn yêu thích
-Chức năng lọc theo giá khách sạn
+ ,Chức năng đăng ký tài khoản
+ ,Chức năng hiển thị khách sạn 
+ ,Chức năng hiển thị chi tiết khách sạn
+ ,Chức năng đặt phòng 
+ ,Chức năng hủy đặt phòng 
+ ,Chức năng tìm kiếm khách sạn
+ ,Chức năng bản đồ
+ ,Chức năng quản lý tài khoản 
+ ,Chức năng thêm khách sạn yêu thích
+ ,Chức năng lọc theo giá khách sạn.
+ 
 1.2 Chức năng của Admin
+
 Chức năng điều chỉnh trạng thái hoạt động của khách hàng và khách sạn
-Chức năng lọc theo trạng thái
-Chức năng xem chi tiết khách sạn, khách hàng
-1.3 Chức năng của chủ khách sạn
+  ,Chức năng lọc theo trạng thái
+  ,Chức năng xem chi tiết khách sạn, khách hàng
+
+1.3 Chức năng của chủ khách sạn.
+
 Chức năng thêm khách sạn 
-Chức năng xóa khách sạn
-Chức năng chỉnh sửa thông tin của khách sạn
-Chức năng quản lý đơn đặt hàng
-Chức năng điều chỉnh hồ sơ cá nhân 
+ ,Chức năng xóa khách sạn
+ ,Chức năng chỉnh sửa thông tin của khách sạn
+ ,Chức năng quản lý đơn đặt hàng
+ ,Chức năng điều chỉnh hồ sơ cá nhân.
 
 2. Hình ảnh demo:
+
 2.1 App đặt khách sạn cho khách hàng
 
 ![image](https://user-images.githubusercontent.com/106511965/226413624-153ba982-4219-442e-8d24-a50691d601f1.png)
@@ -36,6 +43,7 @@ Chức năng điều chỉnh hồ sơ cá nhân
 ![image](https://user-images.githubusercontent.com/106511965/226413803-545b3953-fc4b-456c-97a2-2aa5dd0492fa.png)
 
 2.2 App quản lý khách sạn
+
 2.2.1 Bên phía Admin
 
 ![image](https://user-images.githubusercontent.com/106511965/226413854-91b6a293-8dd0-4ed7-ac2f-5b77a9fdfb75.png)
