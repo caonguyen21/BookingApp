@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_search"
+        android:hint="Tìm kiếm..."
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="Tìm kiếm"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_xoaFiller"
+        android:title="XÓA BỘ LỌC: " />
+    <item
+        android:id="@+id/menu_hightolow"
+        android:title="Giá cao tới thấp" />
+    <item
+        android:id="@+id/menu_lowtohigh"
+        android:title="Giá thấp tới cao" />
+    <item
+        android:id="@+id/menu_fillerQuan"
+        android:title="Tìm theo quận" />
+    <item
+        android:id="@+id/menu_statusOn"
+        android:title="Khách sạn đang hoạt động" />
+    <item
+        android:id="@+id/menu_statusOff"
+        android:title="Khách sạn không hoạt động" />
+</menu>

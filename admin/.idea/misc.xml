@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/drawable-v24/ic_outline_add_home_work_24.xml" value="0.187" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/drawable-v24/ic_outline_add_location_24.xml" value="0.187" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/drawable-v24/ic_outline_calendar_month_24.xml" value="0.2065" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/drawable-v24/ic_outline_list_alt_24.xml" value="0.187" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/drawable-v24/ic_outline_lock_open_24.xml" value="0.127" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/drawable/ic_baseline_circle_24.xml" value="0.1675" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/drawable/ic_baseline_circle_24_green.xml" value="0.1675" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/drawable/ic_outline_lock_open_24.xml" value="0.121" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/activity_add_hotel.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/activity_addroom.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/activity_admin_main_screen.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/activity_detail_booked.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/activity_detailhotel.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/activity_detailhotel_owner.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/activity_edit_profile_page.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/activity_main.xml" value="0.259375" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/activity_main_screen.xml" value="0.22850877192982455" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/activity_ownew_main_screem.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/activity_sign_in.xml" value="0.2129115006412997" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/activity_sign_up.xml" value="0.259375" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/activity_updataroom.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/activity_welcome.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/fragment_owner.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/fragment_q_l_don_hang.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/fragment_q_l_k_s__owner.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/fragment_q_l_khach_hang.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/fragment_q_l_khach_san.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/item_hotel_owner.xml" value="0.21754385964912282" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/item_list2.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/item_listlocation.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/layout/item_user.xml" value="0.2" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/menu/bottom_menu.xml" value="0.22850877192982455" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/menu/bottom_menu_owner.xml" value="0.21754385964912282" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/menu/menu_favorite.xml" value="0.22850877192982455" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/menu/menu_item.xml" value="0.22850877192982455" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/menu/menu_ql_user.xml" value="0.21842105263157896" />
+        <entry key="..\:/Users/Cao Nguyen/Desktop/Admin/app/src/main/res/menu/menu_status.xml" value="0.21842105263157896" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

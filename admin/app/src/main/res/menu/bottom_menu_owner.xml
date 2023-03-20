@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_qlkhachsanowner"
+        android:icon="@drawable/ic_baseline_hotel_24"
+        android:title="Quản lý khách sạn"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_qlDonhang"
+        android:icon="@drawable/ic_baseline_shopping_bag_24"
+        android:title="Quản lý đơn hàng"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_hoso"
+        android:icon="@drawable/ic_outline_account_circle_24"
+        android:title="Hồ sơ của tôi"
+        app:showAsAction="always" />
+</menu>
